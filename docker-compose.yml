@@ -1,0 +1,26 @@
+services:
+  server:
+    build: ./server
+    container_name: live-polling-server
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    networks:
+      - polling-network
+
+  client:
+    build: ./client
+    container_name: live-polling-client
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+    networks:
+      - polling-network
+
+networks:
+  polling-network:
+    driver: bridge
