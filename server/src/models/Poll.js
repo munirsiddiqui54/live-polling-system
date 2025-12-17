@@ -122,6 +122,8 @@ class Poll {
       completedAt: new Date().toISOString()
     });
 
+    this.currentPoll = null;
+
     return results;
   }
 
