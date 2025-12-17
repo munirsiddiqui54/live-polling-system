@@ -1,17 +1,4 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-function KickedOut() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/');
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [navigate]);
-
+function KickedOutView() {
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-white">
       <div className="max-w-md w-full text-center">
@@ -36,13 +23,9 @@ function KickedOut() {
           <br />
           Try again sometime.
         </p>
-
-        <div className="mt-8 text-sm text-gray-500">
-          Redirecting to home in 3 seconds...
-        </div>
       </div>
     </div>
   );
 }
 
-export default KickedOut;
+export default KickedOutView;
